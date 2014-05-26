@@ -1,0 +1,11 @@
+Tracing for 1 is nonexist!
+Tracing for Foo
+  <- java.lang.String(java.lang.String) on Test4.java:9
+  <- Test.foo() on Test4.java:5
+  -> Test.nothing(java.lang.Object) on Test4.java:25
+  -> ist.meic.pa.Trace.print(java.lang.Object) on Test4.java:29
+Tracing for Bar
+  <- java.lang.String(java.lang.String) on Test4.java:13
+  <- Test.bar() on Test4.java:6
+  -> Test.nothing(java.lang.Object,int) on Test4.java:26
+  -> ist.meic.pa.Trace.print(java.lang.Object) on Test4.java:30

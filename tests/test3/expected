@@ -1,0 +1,11 @@
+Tracing for 1 is nonexist!
+Tracing for 1
+  <- java.lang.Integer(int) on Test3.java:7
+  -> ist.meic.pa.Trace.print(java.lang.Object) on Test3.java:7
+Tracing for Literal String is nonexist!
+Tracing for Ola
+  <- java.lang.String(java.lang.String) on Test3.java:9
+  -> ist.meic.pa.Trace.print(java.lang.Object) on Test3.java:9
+Tracing for Ola
+  <- java.lang.String(java.lang.String) on Test3.java:10
+  -> ist.meic.pa.Trace.print(java.lang.Object) on Test3.java:10

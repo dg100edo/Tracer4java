@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Tracer4Java" default="exportJar" basedir=".">
+    
+	<!-- set global properties for this build -->
+    <property name="src" location="src"/>
+    <property name="classes" location="classes"/>
+    <property name="target.jar" location="tracer.jar"/>
+	
+	<path id="project.class.path">
+		<pathelement location="${classes}"/>
+		<pathelement location="javassist.jar"/>
+    </path>
+
+    <!-- Create the ${classes} directory structure used by compile -->
+    <target name="init" depends="clean" description="create directories">
+        <mkdir dir="${classes}"/>
+    </target>
+        
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <target name="clean" description="clean up" >
+        <delete dir="${classes}"/>
+        <delete dir="${bin}"/>
+    </target>
+
+    <!-- Compile the java code from ${src} into ${build} -->
+    <target name="compile" depends="init" description="compile the source" >
+        <javac srcdir="${src}" destdir="${classes}" includeantruntime="false" debug="true" >
+        	<classpath refid="project.class.path"/>
+        	<compilerarg value="-Xlint:unchecked"/>
+        </javac>
+    </target>
+
+    <!-- Runs the programs compiled -->
+    <target name="run" depends="compile" description="runs the programs" >
+        <java fork="true" classname="ist.meic.pa.TraceVM">
+        	<arg value="ist.meic.pa.Test2" /> 
+        	<classpath refid="project.class.path"/>
+        </java>
+    </target>
+    
+    <target name="exportJar" depends="removeJar, compile" description="export porject to a .jar">
+    	<jar jarfile="${target.jar}" update="true">
+	      	<fileset dir="${classes}">
+	      	  	<include name="**/*.class"/>
+	    	</fileset>
+     	</jar>
+  	</target>
+  	
+  	<target name="removeJar" description="remove .jar">
+    	<delete file="${target.jar}"/>
+  	</target>
+</project>

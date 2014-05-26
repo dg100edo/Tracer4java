@@ -1,0 +1,6 @@
+/bin
+/classes
+/*.class
+/inspector.jar
+/tracer.jar
+.classpath
